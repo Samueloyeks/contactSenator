@@ -25,6 +25,7 @@ import { ToastrService } from 'ngx-toastr';
   styles: []
 })
 export class HomeComponent implements OnInit {
+  searchText
   senators: any = [];
   states:any=[];
   senator;

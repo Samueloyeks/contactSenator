@@ -38,7 +38,7 @@ export class EditSenatorComponent implements OnInit {
       });
     }
   
-    save(form: NgForm) {
+    save() {
       var data ={
         "id": this.id,
         "name": this.name,

@@ -13,11 +13,13 @@ export class AppServiceService {
       "Content-Type": "application/json",
     })
   };
+
+  baseURL ='https://infinite-coast-57393.herokuapp.com'
   constructor(private http: HttpClient) {}
 
   public getSenators() {
     return new Promise((resolve,reject)=>{
-      this.http.get("http://localhost:8000/senators").subscribe(
+      this.http.get(`${this.baseURL}/senators`).subscribe(
         response => {
           resolve(response)
         },
@@ -31,7 +33,7 @@ export class AppServiceService {
 
   public getStates() {
     return new Promise((resolve,reject)=>{
-      this.http.get("http://localhost:8000/states").subscribe(
+      this.http.get(`${this.baseURL}/states`).subscribe(
         response => {
           resolve(response)
         },
@@ -47,7 +49,7 @@ export class AppServiceService {
   public addSenators(data) {
     console.log(data)
     return new Promise((resolve,reject)=>{
-      this.http.post(`http://localhost:8000/senators`,data,this.header)
+      this.http.post(`${this.baseURL}/senators`,data,this.header)
       .subscribe(
         response => {
           console.log(response)
@@ -69,7 +71,7 @@ export class AppServiceService {
   public editSenator(data) {
     console.log(data)
     return new Promise((resolve,reject)=>{
-      this.http.post(`http://localhost:8000/senators`,data,this.header)
+      this.http.post(`${this.baseURL}/senators`,data,this.header)
       .subscribe(
         response => {
           console.log(response)
@@ -88,7 +90,7 @@ export class AppServiceService {
   public deleteSenator(data) {
     console.log(data)
     return new Promise((resolve,reject)=>{
-      this.http.delete(`http://localhost:8000/senators/${data.id}`,data,)
+      this.http.delete(`${this.baseURL}/senators/${data.id}`,data,)
       .subscribe(
         response => {
           console.log(response)
@@ -107,7 +109,7 @@ export class AppServiceService {
   public sendMail(data) {
     console.log(data)
     return new Promise((resolve,reject)=>{
-      this.http.post(`http://localhost:8000/sendmail`,data,)
+      this.http.post(`${this.baseURL}/sendmail`,data,)
       .subscribe(
         response => {
           console.log(response)

@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>{{ description }}</h2>
+
+<mat-dialog-content>
+        <form>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="From"
+                    [(ngModel)]="from"
+                    type="email"
+                    name="from"
+                    required
+                  />
+                </mat-form-field><br/>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Subject"
+                    [(ngModel)]="subject"
+                    type="text"
+                    name="subject"
+                    required
+                  />
+                </mat-form-field><br/>
+                <mat-form-field>
+                  <textarea
+                    matInput
+                    placeholder="Body"
+                    [(ngModel)]="body"
+                    type="body"
+                    name="body"
+                    required
+                  ></textarea>
+                </mat-form-field>
+
+              </form>
+  ....
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="send()">Send</button>
+</mat-dialog-actions>

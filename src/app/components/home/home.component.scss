@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: right;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;    
+    background: #F6F6F6;
+    padding: 10px;
+    background-color: black;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    padding: 16px;
+    text-align: center;
+    /* background-color: #203E61; */
+    margin-bottom: 20px;
+    // background: #FFFFFF;
+    background-image: linear-gradient(-90deg, #68A5EE, #fff);
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+  .search-div{
+      margin: 50px;
+      text-align: center;
+    }
+    // .form-control{
+    //   width: 60%;
+    //   height: 50px;
+    //   border-radius: 20px;
+    //   outline: none;
+    //   /* border: 20px; */
+    //   background: #C4C4C4;
+    //   border-radius: 30px;
+    //   padding: 20px;
+    //   font-size: 20px;
+    // }
+
+    .top-bar{
+        padding: 30px;
+        // margin-top: 15px;
+        background-color: black;
+    }
+    .searchbar-div{
+        text-align: center;
+        display: inline-block;
+        width: 70%;
+    }
+    .logo-div{
+        display: inline-block;
+
+    }
+    .add-div{
+        display: inline-block;
+        :hover{
+            cursor: pointer;
+        }
+    }
+    #searchbar{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    height: 60px;
+    padding: 20px 50px;
+    font-size: 20px;
+    width: 90%;
+    border: antiquewhite;
+    outline: none;
+    position: inherit;
+    vertical-align: text-bottom;
+    }
+    .button-div{
+      
+    }
+    .button{
+        background: #68A5EE;
+    border-radius: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px 20px;
+    /* float: left; */
+    /* line-height: 23px; */
+    color: #FFFFFF;
+    margin: 10px 0 10px;
+    border: none;
+    outline: none;
+    &:hover{
+        cursor: pointer;
+    }
+    }
+
+    #delete{
+        color: #ff000085;
+        background-color: transparent;
+        :hover{
+          cursor: pointer;
+      }
+    }

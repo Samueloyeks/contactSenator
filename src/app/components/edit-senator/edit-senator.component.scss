@@ -1,0 +1,34 @@
+mat-form-field{
+    width: 100%;
+}
+.selectState{
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+}
+.button{
+    background: #68A5EE;
+border-radius: 20px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+padding: 5px 20px;
+/* float: left; */
+/* line-height: 23px; */
+color: #FFFFFF;
+margin: 10px 0 10px;
+border: none;
+outline: none;
+:hover{
+    cursor: pointer;
+}
+}
+
+#delete{
+    color: #ff000085;
+    background-color: transparent;
+    :hover{
+      cursor: pointer;
+  }
+}

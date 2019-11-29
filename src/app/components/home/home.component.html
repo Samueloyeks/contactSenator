@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="top-bar">
+      <div class="logo-div">
+        <img style="width:200px;" src="../../../assets/imgs/logo.png" />
+      </div>
+      <div class="searchbar-div">
+        <mat-icon
+          style="position: absolute;
+                padding: 20px;"
+          >search</mat-icon
+        >
+        <input
+          class="form-control"
+          id="searchbar"
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          autocomplete="off"
+          placeholder="Search by name or state"
+        />
+      </div>
+      <div class="add-div" (click)="openDialog()">
+        <mat-icon style="color: #68A5EE;">add_circle</mat-icon>
+        <p
+          style=" display: inline-block;
+                vertical-align: super;color: #68A5EE;"
+        >
+          Add Senator
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column" *ngFor="let senator of senators | filter: searchText">
+        <div class="card">
+          <h3 style="font-size: 25px;font-weight: bolder;">
+            {{ senator.name }}
+          </h3>
+          <a href="mailto:{{ senator.email }}" target="_blank">
+            {{ senator.email }}
+          </a>
+          <p>{{ senator.phoneNumber }}</p>
+          <p style="text-transform: uppercase;font-weight: bolder;">
+            {{ senator.state }} state
+          </p>
+          <div class="button-div">
+            <button class="button" (click)="editSenator(senator)">
+              Edit
+            </button>
+            <button class="button" id="delete" (click)="deleteSenator(senator)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<app-loader *ngIf="loading"></app-loader>
+

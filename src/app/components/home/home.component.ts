@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.loading = true
     this.appService.getSenators().then(data => {
+      if(data == 'Error!'){
+
+      }
       this.senators = data;
       console.log(this.senators);
       this.loading = false
@@ -56,8 +59,6 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog() {
-    this.toastr.success("Hello, I'm the toastr message.")
-
     const dialogConfig = new MatDialogConfig();
 
     const dialogRef = this.dialog.open(AddSenatorComponent, {
@@ -79,12 +80,19 @@ export class HomeComponent implements OnInit {
       if(data){
         this.loading = true
         this.appService.addSenators(data).then((response)=>{
+          if(response == 'Error!'){
+            this.toastr.error("Error!")
+          }
+          this.senators = response
           console.log(response)
           this.loading = false
+          this.toastr.success("Record Added Successfully!")
 
         },error=>{
           console.log(error)
           this.loading = false
+          this.toastr.error("Error!")
+
         })
 
       }
@@ -118,12 +126,19 @@ export class HomeComponent implements OnInit {
       if(data){
         this.loading = true
         this.appService.editSenator(data).then((response)=>{
+          if(response == 'Error!'){
+            this.toastr.error("Error!")
+
+          }
+          this.senators = response
           console.log(response)
           this.loading = false
-
+          this.toastr.success("Done!")
         },error=>{
           console.log(error)
           this.loading = false
+          this.toastr.error("Error!")
+
         })
       }
     }
@@ -134,8 +149,14 @@ export class HomeComponent implements OnInit {
   deleteSenator(senator){
     this.loading = true
     this.appService.deleteSenator(senator).then((response)=>{
+      if(response == 'Error!'){
+        this.toastr.error("Error!")
+      }
+      this.senators = response
       console.log(response)
       this.loading = false
+      this.toastr.success("Record Deleted Successfully!")
+
     })
   }
 
